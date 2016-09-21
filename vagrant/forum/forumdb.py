@@ -2,7 +2,6 @@
 # Database access functions for the web forum.
 #
 
-import time
 import psycopg2
 
 ## Database connection
@@ -29,5 +28,7 @@ def AddPost(content):
     Args:
       content: The text content of the new post.
     '''
-    t = time.strftime('%c', time.localtime())
-    DB.append((t, content))
+    query = 'insert into posts values (%, default, default)' % content
+
+    c.execute(query)
+    DB.commit()
