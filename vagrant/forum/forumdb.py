@@ -22,6 +22,7 @@ def GetAllPosts():
     c.execute(query)
     posts = c.fetchall()
 
+    print posts # for debugging
     return posts
 
 ## Add a post to the database.
@@ -31,7 +32,7 @@ def AddPost(content):
     Args:
       content: The text content of the new post.
     '''
-    query = 'insert into posts values (%s, default, default);' % content
+    query = "insert into posts values ('%s', default, default);" % content
 
     c.execute(query)
     DB.commit()
