@@ -22,7 +22,7 @@ def GetAllPosts():
     c.execute(query)
     result = c.fetchall()
 
-    posts = [{'content': row[0], 'time': str(row[1])} for row in result]
+    posts = [{'content': row[0], 'time': row[1].strftime('%c')} for row in result]
 
     print posts # for debugging
     return posts
