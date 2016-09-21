@@ -18,12 +18,7 @@ def GetAllPosts():
       pointing to the post content, and 'time' key pointing to the time
       it was posted.
     '''
-    try:
-        posts = c.execute('select * from posts order by time desc;')
-    except psycopg2.ProgrammingError as e:
-        print e.message
-        DB.rollback()
-        posts = []
+    posts = c.execute('select * from posts order by time desc;')
 
     return posts
 
