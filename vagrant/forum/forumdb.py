@@ -31,7 +31,7 @@ def AddPost(content):
     Args:
       content: The text content of the new post.
     '''
-    query = 'insert into posts values (%, default, default)' % content
+    query = 'insert into posts values (%, default, default);' % content
 
     c.execute(query)
     DB.commit()
