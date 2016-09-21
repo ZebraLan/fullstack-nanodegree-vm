@@ -17,7 +17,9 @@ def GetAllPosts():
       pointing to the post content, and 'time' key pointing to the time
       it was posted.
     '''
-    c.execute('select * from posts order by time desc;')
+    query = 'select * from posts order by time desc;'
+
+    c.execute(query)
     posts = c.fetchall()
 
     return posts
